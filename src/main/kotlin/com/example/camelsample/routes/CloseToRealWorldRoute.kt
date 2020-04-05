@@ -19,13 +19,13 @@ class CloseToRealWorldRoute : RouteBuilder() {
     }
 
     override fun configure() {
-        from("aws-sqs://camel-sample-1")
+        from("aws-sqs://products")
                 .id("CloseToRealWorld")
                 .choice()
                     .`when`(jsonpath("$..[?(@.frontend == 'LOUNGE')]"))
                         .unmarshal().json(JsonLibrary.Jackson, Map::class.java)
                         .process(dynamoAdapterProcessor)
-                        .to("aws-ddb://users?operation=PutItem")
+                        .to("aws-ddb://lounge-items?operation=PutItem")
                     .otherwise()
                         .to("aws-sqs://shop-items")
     }

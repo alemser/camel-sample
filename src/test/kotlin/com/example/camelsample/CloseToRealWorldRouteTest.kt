@@ -24,7 +24,7 @@ class CloseToRealWorldRouteTest() : StringSpec() {
 			) { sku, frontend, expDynamoLoungeCount, expSqsShopCount ->
 
 				testSupport.context().start()
-				val dynamoTable = "mock:aws-ddb:users".asMockEndpoint()
+				val dynamoTable = "mock:aws-ddb:lounge-items".asMockEndpoint()
 				dynamoTable.expectedMessageCount(expDynamoLoungeCount)
 
 				val shopQueue = "mock:aws-sqs:shop-items".asMockEndpoint()

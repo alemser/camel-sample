@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component
 class SimpleRoute : RouteBuilder() {
 
     override fun configure() {
-        from("aws-sqs://dummy")
+        from("aws-sqs://helloq")
             .transform(body().prepend("Hello "))
             .log(body().toString())
     }

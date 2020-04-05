@@ -39,10 +39,16 @@ dependencies {
 	testImplementation("io.kotest:kotest-runner-junit5-jvm:4.0.2")
 	testImplementation("io.kotest:kotest-extensions-spring:4.0.2")
 	testImplementation("io.kotest:kotest-assertions-core-jvm:4.0.2")
+
+	testImplementation("io.cucumber:cucumber-core:3.0.0")
+	testImplementation("io.cucumber:cucumber-java8:3.0.0")
+	testImplementation("io.cucumber:cucumber-junit:3.0.0")
+
 }
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+	isScanForTestClasses = false
 }
 
 tasks.withType<KotlinCompile> {
