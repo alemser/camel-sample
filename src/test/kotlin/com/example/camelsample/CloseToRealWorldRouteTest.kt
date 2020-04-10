@@ -19,8 +19,8 @@ class CloseToRealWorldRouteTest() : StringSpec() {
 	init {
 		"it should process product to the right frontend"() {
 			forAll(
-					row("AAAAAAA", "SHOP", 0, 1),
-					row("BBBBBBB", "LOUNGE", 1, 0)
+				row("AAAAAAA", "SHOP", 0, 1),
+				row("BBBBBBB", "LOUNGE", 1, 0)
 			) { sku, frontend, expDynamoLoungeCount, expSqsShopCount ->
 
 				testSupport.context().start()
